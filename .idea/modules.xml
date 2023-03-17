@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../depth_distdepth/.idea/depth_distdepth.iml" filepath="$PROJECT_DIR$/../depth_distdepth/.idea/depth_distdepth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../depth_lite_mono/.idea/depth_lite_mono.iml" filepath="$PROJECT_DIR$/../depth_lite_mono/.idea/depth_lite_mono.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mono_hydra.iml" filepath="$PROJECT_DIR$/.idea/mono_hydra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../semantic_seg/.idea/semantic_seg.iml" filepath="$PROJECT_DIR$/../semantic_seg/.idea/semantic_seg.iml" />
+    </modules>
+  </component>
+</project>
