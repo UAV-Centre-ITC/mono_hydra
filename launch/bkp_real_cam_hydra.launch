@@ -21,11 +21,8 @@
 
     <!-- semantic configuration -->
     <arg name="semantic_map_path" default="$(find kimera_semantics_ros)/cfg/ade150_config.csv"/>
-    <!--<arg name="typology_dir" default="$(find hydra_dsg_builder)/config/d455"/>-->
-    <!--<arg name="typology_config" default="d455_typology.yaml"/>-->
     <arg name="typology_dir" default="$(find hydra_dsg_builder)/config/uhumans2"/>
     <arg name="typology_config" default="uhumans2_office_typology.yaml"/>
-
 
     <!-- see uhumans2 launch file for how these are used -->
     <arg name="dsg_output_dir" default="$(find hydra_dsg_builder)/output/uhumans2"/>
@@ -45,8 +42,8 @@
 
     <!-- performs reconstruction and extracts places -->
     <include file="$(find hydra_topology)/launch/hydra_topology.launch" pass_all_args="true">
-	<arg name="semantic_color_path" value="$(arg semantic_map_path)"/>
-        <arg name="config" value="d455_topology_config.yaml"/>
+        <arg name="semantic_color_path" value="$(arg semantic_map_path)"/>
+        <arg name="config" value="uhumans2_topology_config.yaml"/>
         <arg name="semantic_config" default="ade150_semantic_config.yaml"/>
         <arg name="config_dir" value="$(find hydra_topology)/config"/>
         <arg name="debug" value="false"/>
@@ -56,14 +53,14 @@
         <arg name="update_period_s" default="0.5"/> -->
         <arg name="voxel_size" default="0.10"/>
         <arg name="max_ray_length_m" default="4.5"/>
-        <arg name="update_period_s" default=".5"/>
+        <arg name="update_period_s" default=".2"/>
     </include>
 
     <!-- constructs rest of scene graph from reconstruction and places -->
     <include file="$(find hydra_dsg_builder)/launch/dsg_builder.launch" pass_all_args="true">
         <arg name="robot_id" value="0"/>
         <arg name="world_frame" value="world"/>
-        <arg name="use_oriented_bounding_boxes" value="false"/>
+        <arg name="use_oriented_bounding_boxes" value="true"/>
         <arg name="config_dir" value="$(find hydra_dsg_builder)/config/uhumans2"/>
     </include>
      <!-- Launch static TF node from cam link to world -->
