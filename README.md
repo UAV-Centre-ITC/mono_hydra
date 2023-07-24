@@ -1,9 +1,9 @@
 # Mono_Hydra
-![Alt text](doc/media/illustration.png)
+<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/illustration.png"  width="80%" height="80%">
 
 [Poster](<doc/media/PSB Poster A3 gen.pdf>)
 ## Mono-Hydra flow chart
-<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/flow.png"  width="40%" height="25%">
+<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/flow.png"  width="60%" height="40%">
 
 ## Installing Mono_Hydra
 ### Install Instructions 
@@ -46,16 +46,18 @@ rosbag play office_3.bag --clock --pause /camera/color/image_raw:=/cam0/image_ra
 
 ## Results
 
-Depth prediction network	2nd floor	        3rd floor  
-	                        ME (m)	SD (m)	    ME (m)	SD (m)
-DistDepth	                **0.1979**	0.1810	**0.2128**	0.1645
-Lite-Mono	                0.3818	0.2692	    0.3617	0.2468
+| Depth prediction network |  2nd floor	    |   3rd floor     |
+|:-------------------------|:--------------:|:---------------:|
+|                          | ME (m)| SD (m)	|   ME (m)| SD (m)|
+|                          |:-----:|:------:|:-------:|:-----:|
+| DistDepth	               | 0.1979| 0.1810	|   0.2128|	0.1645|
+| Lite-Mono	               | 0.3818| 0.2692	|   0.3617| 0.2468|
 
 #### 2nd to 3rd floor Scene graph at the ITC building
-![Alt text](doc/media/mh_itc_2nd_3rd.png)
+<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/mh_itc_2nd_3rd.png"  width="60%" height="60%">
 
 #### Metric comparison (few key measurements) 
-![Alt text](doc/media/measurements.png)
+<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/measurements.png"  width="60%" height="60%">
 
 #### uHumans2 Office scene graph 
-![Alt text](doc/media/mono_hydra_UH.png)
+<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/mono_hydra_UH.png"  width="60%" height="60%">
