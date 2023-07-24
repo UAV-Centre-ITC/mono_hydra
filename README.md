@@ -47,7 +47,7 @@ rosbag play office_3.bag --clock --pause /camera/color/image_raw:=/cam0/image_ra
 ## Results
 
 | Depth prediction network |  2nd floor	    |   3rd floor     |
-|:-------------------------|:------|-------:|:--------|------:|
+|:-------------------------|:--------------:|:---------------:|
 |                          | ME (m)| SD (m)	|   ME (m)| SD (m)|
 | DistDepth	               | 0.1979| 0.1810	|   0.2128|	0.1645|
 | Lite-Mono	               | 0.3818| 0.2692	|   0.3617| 0.2468|
