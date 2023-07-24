@@ -1,7 +1,9 @@
 # Mono_Hydra
+![Alt text](doc/media/mh_itc_2nd_3rd.png)
+
 [Poster](<doc/media/PSB Poster A3 gen.pdf>)
 ## Mono-Hydra flow chart
-![Flow](doc/media/flow.png)
+<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/flow.png"  width="40%" height="25%">
 
 ## Installing Mono_Hydra
 ### Install Instructions 
