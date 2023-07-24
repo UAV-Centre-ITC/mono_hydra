@@ -1,5 +1,5 @@
 # Mono_Hydra
-![Alt text](doc/media/mh_itc_2nd_3rd.png)
+![Alt text](doc/media/cover.png)
 
 [Poster](<doc/media/PSB Poster A3 gen.pdf>)
 ## Mono-Hydra flow chart
@@ -18,27 +18,27 @@ TODO
 ```
 roslaunch mono_hydra real_cam_hydra.launch start_visualizer:=true
 ```
-** HRNetV2 trained on ADE20k **
+**HRNetV2 trained on ADE20k**
 ```
 roslaunch semantic_segmentation_ros semantic_segmentation.launch
 ```
 
-** RIVO2 based odometry prediction node **
+**RIVO2 based odometry prediction node**
 ```
 roslaunch rvio2 realsense.launch
 ```
 
-** DistDepth model based depth prediction **
+**DistDepth model based depth prediction**
 ```
 roslaunch depth_distdepth dist_depth.launch
 ```
 
-** or Lite-Mono based depth prediction**
+**or Lite-Mono based depth prediction**
 ```
 roslaunch depth_lite_mono lite_mono.launch
 ```
 
-** Play the downloaded ROS bag file **
+**Play the downloaded ROS bag file**
 ```
 rosbag play office_3.bag --clock --pause /camera/color/image_raw:=/cam0/image_raw  /camera/imu:=/imu0 /tf:=/tf_ignore /tf_static:=/tf_static_ignore -r 0.1
 ```
@@ -46,7 +46,13 @@ rosbag play office_3.bag --clock --pause /camera/color/image_raw:=/cam0/image_ra
 
 ## Results
 
-Depth prediction network	2nd floor	    3rd floor  
-	                        ME (m)	SD (m)	ME (m)	SD (m)
-DistDepth	                0.1979	0.1810	0.2128	0.1645
-Lite-Mono	                0.3818	0.2692	0.3617	0.2468
+Depth prediction network	2nd floor	        3rd floor  
+	                        ME (m)	SD (m)	    ME (m)	SD (m)
+DistDepth	                **0.1979**	0.1810	**0.2128**	0.1645
+Lite-Mono	                0.3818	0.2692	    0.3617	0.2468
+
+#### 2nd to 3rd floor Scene graph
+![Alt text](doc/media/mh_itc_2nd_3rd.png)
+
+#### Metric comparison (few key measurements) 
+![Alt text](doc/media/measurements.png)
