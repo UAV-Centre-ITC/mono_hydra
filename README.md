@@ -3,7 +3,7 @@
 
 [Poster](<doc/media/PSB Poster A3 gen.pdf>)
 ## Mono-Hydra flow chart
-<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/flow.png"  width="60%" height="40%">
+<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/flow.png"  width="50%" height="20%">
 
 ## Installing Mono_Hydra
 ### Install Instructions 
