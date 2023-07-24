@@ -1,5 +1,5 @@
 # Mono_Hydra
-![Alt text](doc/media/cover.png)
+![Alt text](doc/media/illustration.png)
 
 [Poster](<doc/media/PSB Poster A3 gen.pdf>)
 ## Mono-Hydra flow chart
@@ -51,8 +51,11 @@ Depth prediction network	2nd floor	        3rd floor
 DistDepth	                **0.1979**	0.1810	**0.2128**	0.1645
 Lite-Mono	                0.3818	0.2692	    0.3617	0.2468
 
-#### 2nd to 3rd floor Scene graph
+#### 2nd to 3rd floor Scene graph at the ITC building
 ![Alt text](doc/media/mh_itc_2nd_3rd.png)
 
 #### Metric comparison (few key measurements) 
 ![Alt text](doc/media/measurements.png)
+
+#### uHumans2 Office scene graph 
+![Alt text](doc/media/mono_hydra_UH.png)
