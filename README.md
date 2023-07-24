@@ -1,5 +1,7 @@
 # Mono_Hydra
-![Mono_Hydra illustration](<doc/media/Picture 1.svg>)![Flow](doc/media/flow.png)
+[Poster](<doc/media/PSB Poster A3 gen.pdf>)
+## Mono-Hydra flow chart
+![Flow](doc/media/flow.png)
 
 ## Installing Mono_Hydra
 ### Install Instructions 
