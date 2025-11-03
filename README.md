@@ -1,5 +1,11 @@
 # Mono_Hydra
 
+
+- **Mono-Hydra** – *Mono-hydra: Real-time 3D scene graph construction from monocular camera input with IMU*  
+  [arXiv:2308.05515](https://arxiv.org/pdf/2308.05515)
+- **M2H** – *M2H: Multi-Task Learning with Efficient Window-Based Cross-Task Attention for Monocular Spatial Perception*  
+  [arXiv:2510.17363](https://arxiv.org/abs/2510.17363)
+  
 ## Mono-Hydra flow chart
 <img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/Slide1.jpg"  width="60%" height="60%">
 
@@ -16,38 +22,6 @@ stack. It aggregates:
   perception and VIO pipelines together.
 
 ## Installing Mono_Hydra
-
-### Citations
-If you use this repository, please cite the following papers:
-
-- **Mono-Hydra core pipeline**
-  ```bibtex
-  @article{Udugama_2023,
-     title={MONO-HYDRA: REAL-TIME 3D SCENE GRAPH CONSTRUCTION FROM MONOCULAR CAMERA INPUT WITH IMU},
-     volume={X-1/W1-2023},
-     ISSN={2194-9050},
-     url={http://dx.doi.org/10.5194/isprs-annals-X-1-W1-2023-439-2023},
-     DOI={10.5194/isprs-annals-x-1-w1-2023-439-2023},
-     journal={ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences},
-     publisher={Copernicus GmbH},
-     author={Udugama, U. V. B. L. and Vosselman, G. and Nex, F.},
-     year={2023},
-     month=dec,
-     pages={439--445}
-  }
-  ```
-
-- **M2H multi-task perception**
-  ```bibtex
-  @article{Udugama_2025_M2H,
-     title={Multi-Task Learning with Efficient Window-Based Cross-Task Attention for Monocular Spatial Perception},
-     author={Udugama, U. V. B. L. and Vosselman, G. and Nex, F.},
-     journal={arXiv preprint arXiv:2510.17363},
-     year={2025}
-  }
-  ```
-
-
 
 ### Prerequisites
 
@@ -145,3 +119,37 @@ rosbag play /home/bavantha/catkin_ws/data/ITC_2nd_floor_full_loop.bag --clock --
 | **M2H (ours)** | **0.11** | **0.14** | **0.10** | **0.13** | **30** |
 
 <img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/2nd_floor.jpg"  width="80%" height="80%">
+
+
+
+
+### Citations
+If you use this repository, please cite the following papers:
+
+- **Mono-Hydra core pipeline**
+  ```bibtex
+  @article{Udugama_2023,
+     title={MONO-HYDRA: REAL-TIME 3D SCENE GRAPH CONSTRUCTION FROM MONOCULAR CAMERA INPUT WITH IMU},
+     volume={X-1/W1-2023},
+     ISSN={2194-9050},
+     url={http://dx.doi.org/10.5194/isprs-annals-X-1-W1-2023-439-2023},
+     DOI={10.5194/isprs-annals-x-1-w1-2023-439-2023},
+     journal={ISPRS Annals of the Photogrammetry, Remote Sensing and Spatial Information Sciences},
+     publisher={Copernicus GmbH},
+     author={Udugama, U. V. B. L. and Vosselman, G. and Nex, F.},
+     year={2023},
+     month=dec,
+     pages={439--445}
+  }
+  ```
+
+- **M2H multi-task perception**
+  ```bibtex
+  @article{Udugama_2025_M2H,
+     title={Multi-Task Learning with Efficient Window-Based Cross-Task Attention for Monocular Spatial Perception},
+     author={Udugama, U. V. B. L. and Vosselman, G. and Nex, F.},
+     journal={arXiv preprint arXiv:2510.17363},
+     year={2025}
+  }
+  ```
+
