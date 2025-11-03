@@ -1,11 +1,13 @@
 <launch>
     <arg name="sim_time_required" default="true"/>
     <param name="use_sim_time" value="$(arg sim_time_required)"/>
+    <arg name="start_visualizer" default="true" />
 
     <!-- configure Kimera VIO -->
     <arg name="use_gt_frame" default="true"/>
 
     <!-- pointcloud for hydra: no need to change -->
+    <!-- <arg name="pointcloud_topic" value="/semantic_pointcloud"/> -->
     <arg name="pointcloud_topic" value="/semantic_pointcloud"/>
 
     <!-- Replace these with your actual sensor information -->
@@ -21,10 +23,10 @@
 
     <!-- semantic configuration -->
     <arg name="semantic_map_path" default="$(find kimera_semantics_ros)/cfg/ade150_config.csv"/>
-    <!--<arg name="typology_dir" default="$(find hydra_dsg_builder)/config/d455"/>-->
-    <!--<arg name="typology_config" default="d455_typology.yaml"/>-->
-    <arg name="typology_dir" default="$(find hydra_dsg_builder)/config/uhumans2"/>
-    <arg name="typology_config" default="uhumans2_office_typology.yaml"/>
+    <arg name="typology_dir" default="$(find hydra_dsg_builder)/config/d455"/>
+    <arg name="typology_config" default="d455_typology.yaml"/>
+    <!-- <arg name="typology_dir" default="$(find hydra_dsg_builder)/config/uhumans2"/>
+    <arg name="typology_config" default="uhumans2_office_typology.yaml"/> -->
 
 
     <!-- see uhumans2 launch file for how these are used -->
@@ -54,9 +56,9 @@
         <!-- <arg name="voxel_size" default="0.10"/>
         <arg name="max_ray_length_m" default="3"/>
         <arg name="update_period_s" default="0.5"/> -->
-        <arg name="voxel_size" default="0.10"/>
-        <arg name="max_ray_length_m" default="4.5"/>
-        <arg name="update_period_s" default=".5"/>
+        <arg name="voxel_size" default="0.08"/>
+        <arg name="max_ray_length_m" default="6"/>
+        <arg name="update_period_s" default="0.5"/>
     </include>
 
     <!-- constructs rest of scene graph from reconstruction and places -->
@@ -65,6 +67,9 @@
         <arg name="world_frame" value="world"/>
         <arg name="use_oriented_bounding_boxes" value="false"/>
         <arg name="config_dir" value="$(find hydra_dsg_builder)/config/uhumans2"/>
+        <arg name="enable_dsg_lcd" default="true"/>
+        <arg name="enable_lcd_viz" default="true"/>
+        <arg name="optimize_on_lc" default="true"/>
     </include>
      <!-- Launch static TF node from cam link to world -->
     <!-- <node pkg="tf" type="static_transform_publisher" name="world_broadcaster"
