@@ -145,7 +145,7 @@ If you use this repository, please cite the following papers:
 
 - **M2H multi-task perception**
   ```bibtex
-  @article{Udugama_2025_M2H,
+  @article{udugama2025m2hmultitasklearningefficient,
      title={Multi-Task Learning with Efficient Window-Based Cross-Task Attention for Monocular Spatial Perception},
      author={Udugama, U. V. B. L. and Vosselman, G. and Nex, F.},
      journal={arXiv preprint arXiv:2510.17363},
