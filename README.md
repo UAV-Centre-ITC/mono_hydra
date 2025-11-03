@@ -5,7 +5,7 @@
 - **M2H** – [*M2H: Multi-Task Learning with Efficient Window-Based Cross-Task Attention for Monocular Spatial Perception*](https://arxiv.org/abs/2510.17363)
   
 ## Mono-Hydra flow chart
-<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/Slide1.jpg"  width="60%" height="60%">
+<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/Slide1.jpg">
 
 [Poster](<doc/media/M2H_IROS25_A4.pdf>)
 
