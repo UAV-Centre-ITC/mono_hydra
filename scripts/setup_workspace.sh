@@ -56,6 +56,53 @@ for entry in "${!REPOS[@]}"; do
   clone_checkout "$entry" "$url" "$ref"
 done
 
+# Patch upstream TEASER++ to add missing std:: qualifiers and includes on older commits.
+TEASER_GRAPH_CC="$SRC_DIR/teaser_plusplus/teaser/src/graph.cc"
+if [[ -f "$TEASER_GRAPH_CC" ]]; then
+  python3 - "$TEASER_GRAPH_CC" <<'PY'
+from pathlib import Path
+import re
+import sys
+path = Path(sys.argv[1])
+text = path.read_text()
+if "#include <vector>" not in text:
+    anchor = '#include "teaser/graph.h"'
+    if anchor in text:
+        text = text.replace(anchor, '#include <vector>\n\n' + anchor, 1)
+    else:
+        text = '#include <vector>\n' + text
+text = re.sub(r'(?<!std::)vector<', 'std::vector<', text)
+path.write_text(text)
+PY
+fi
+
+TEASER_GRAPH_TEST="$SRC_DIR/teaser_plusplus/test/teaser/graph-test.cc"
+if [[ -f "$TEASER_GRAPH_TEST" ]]; then
+  python3 - "$TEASER_GRAPH_TEST" <<'PY'
+from pathlib import Path
+import re
+import sys
+
+path = Path(sys.argv[1])
+text = path.read_text()
+
+if "#include <vector>" not in text:
+    anchor = '#include <map>'
+    if anchor in text:
+        text = text.replace(anchor, anchor + '\n#include <vector>', 1)
+    else:
+        text = '#include <vector>\n' + text
+
+signature = 'void printAdjMatirx(const std::vector<std::vector<bool>>& adj, int nodes)'
+replacement = 'template <typename BoolLike>\nvoid printAdjMatirx(const std::vector<std::vector<BoolLike>>& adj, int nodes)'
+if signature in text:
+    text = text.replace(signature, replacement, 1)
+
+text = re.sub(r'(?<!std::)vector<', 'std::vector<', text)
+path.write_text(text)
+PY
+fi
+
 if command -v rosdep >/dev/null; then
   rosdep install --from-paths "$SRC_DIR" --ignore-src -r -y
 fi
