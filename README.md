@@ -1,10 +1,7 @@
 # Mono_Hydra
-<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/illustration.png"  width="80%" height="80%">
-
-[Poster](<doc/media/M2H_IROS25_A4.pdf>)
 ## Mono-Hydra flow chart
 <img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/Slide1.jpg"  width="60%" height="60%">
-
+[Poster](<doc/media/M2H_IROS25_A4.pdf>)
 Mono_Hydra is the **central workspace** for our monocular spatial perception
 stack. It aggregates:
 
