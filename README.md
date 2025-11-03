@@ -1,9 +1,9 @@
 # Mono_Hydra
 <img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/illustration.png"  width="80%" height="80%">
 
-[Poster](<doc/media/PSB Poster A3 gen.pdf>)
+[Poster](<doc/media/M2H_IROS25_A4.pdf>)
 ## Mono-Hydra flow chart
-<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/flow.png"  width="50%" height="20%">
+<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/Slide1.jpg"  width="60%" height="60%">
 
 Mono_Hydra is the **central workspace** for our monocular spatial perception
 stack. It aggregates:
@@ -117,45 +117,31 @@ before running the workspace script.
 ## How to run Mono Hydra with ITC building dataset
 
 ### Download data 
-TODO
+Download the 2nd-floor loop of the old ITC building from [this SURFdrive archive](https://surfdrive.surf.nl/s/baJM4fj3DaWwg3T). Unzip the file and place the extracted ROS bag (e.g., `ITC_2nd_floor_full_loop.bag`) somewhere accessible, such as `/home/bavantha/catkin_ws/data/`.
 
-### ROS commands, Each in new terminal
+### Quickstart (after a clean workspace build)
+Open four terminals and launch the stack in order:
 ```
-roslaunch mono_hydra real_cam_hydra.launch start_visualizer:=true
+roslaunch mono_hydra hydra_v2_d435i.launch use_gt_frame:=false
 ```
-**HRNetV2 trained on ADE20k**
 ```
-roslaunch semantic_segmentation_ros semantic_segmentation.launch
+roslaunch kimera_vio_ros kimera_vio_ros_realsense_rgbd_sp.launch online:=true viz_type:=1 use_lcd:=true lcd_no_optimize:=true
 ```
-
-**RIVO2 based odometry prediction node**
 ```
-roslaunch rvio2 realsense.launch
+roslaunch m2h m2h.launch
 ```
-
-**DistDepth model based depth prediction**
 ```
-roslaunch depth_distdepth dist_depth.launch
+rosbag play /home/bavantha/catkin_ws/data/ITC_2nd_floor_full_loop.bag --clock --pause /tf:=/tf_ignore /tf_static:=/tf_static_ignore
 ```
 
-**or Lite-Mono based depth prediction**
-```
-roslaunch depth_lite_mono lite_mono.launch
-```
+### Results
+**3D Mapping Test (ITC dataset) with M2H framework**
 
-**Play the downloaded ROS bag file**
-```
-rosbag play office_3.bag --clock --pause /camera/color/image_raw:=/cam0/image_raw  /camera/imu:=/imu0 /tf:=/tf_ignore /tf_static:=/tf_static_ignore -r 0.1
-```
+| Model | 2nd Floor ME (m) ↓ | 2nd Floor SD (m) ↓ | 3rd Floor ME (m) ↓ | 3rd Floor SD (m) ↓ | FPS ↑ |
+| --- | --- | --- | --- | --- | --- |
+| DistDepth[36]+HRNet[37] | 0.19 | 0.18 | 0.21 | 0.16 | 15 |
+| MTMamba++ [11] | 0.21 | 0.22 | 0.18 | 0.19 | 18 |
+| M2H-small (ours) | 0.16 | 0.18 | 0.15 | 0.17 | 42 |
+| **M2H (ours)** | **0.11** | **0.14** | **0.10** | **0.13** | **30** |
 
-
-## Results
-
-| Depth prediction network |  2nd floor	    |   3rd floor     |
-|:-------------------------|:--------------:|:---------------:|
-|                          | ME (m)   \|  SD (m)	|   ME (m)    \|  SD (m)|
-| DistDepth	               | 0.1979   \|  0.1810	|   0.2128    \|	0.1645|
-| Lite-Mono	               | 0.3818   \|  0.2692	|   0.3617    \|  0.2468|
-
-#### 2nd to 3rd floor Scene graph at the ITC building
-<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/mh_itc_2nd_3rd.png"  width="60%" height="60%">
+<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/2nd_floor.jpg"  width="80%" height="80%">
