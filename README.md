@@ -72,11 +72,6 @@ catkin build
 > once the repository is cloned. Re-running the script is safe: it will `git
 > fetch` and checkout the pinned commits if the repos already exist.
 
-### 2. (Optional) Install Hydra manually
-If you prefer manual setup or want to inspect Hydra independently, follow the
-instructions at https://github.com/MIT-SPARK/Hydra/
-before running the workspace script.
-
 ## Included pipelines
 
 - **M2H perception** – launch via `roslaunch m2h m2h.launch`.
