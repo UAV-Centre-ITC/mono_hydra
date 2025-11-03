@@ -84,7 +84,7 @@ catkin build
 ## How to run Mono Hydra with ITC building dataset
 
 ### Download data 
-Download the 2nd-floor loop of the old ITC building from [this SURFdrive archive](https://surfdrive.surf.nl/s/baJM4fj3DaWwg3T). Unzip the file and place the extracted ROS bag (e.g., `ITC_2nd_floor_full_loop.bag`) somewhere accessible, such as `/home/bavantha/catkin_ws/data/`.
+Download the 2nd-floor loop of the old ITC building from [this SURFdrive archive](https://surfdrive.surf.nl/s/baJM4fj3DaWwg3T). Unzip the file and place the extracted ROS bag (e.g., `ITC_2nd_floor_full_loop.bag`) somewhere accessible, such as `~/catkin_ws/data/`.
 
 ### Quickstart (after a clean workspace build)
 Open four terminals and launch the stack in order:
@@ -98,7 +98,7 @@ roslaunch kimera_vio_ros kimera_vio_ros_realsense_rgbd_sp.launch online:=true vi
 roslaunch m2h m2h.launch
 ```
 ```
-rosbag play /home/bavantha/catkin_ws/data/ITC_2nd_floor_full_loop.bag --clock --pause /tf:=/tf_ignore /tf_static:=/tf_static_ignore
+rosbag play ~/catkin_ws/data/ITC_2nd_floor_full_loop.bag --clock --pause /tf:=/tf_ignore /tf_static:=/tf_static_ignore
 ```
 
 ### Results
