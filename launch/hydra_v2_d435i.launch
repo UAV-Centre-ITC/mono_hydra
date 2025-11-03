@@ -26,14 +26,14 @@
     <arg name="sensor_max_range" default="5.0" doc="maximum sensor range in meters"/>
 
     <!-- semantics -->
-    <arg name="labelspace_name" default="nyud40"/>
+    <arg name="labelspace_name" default="nyud20_config"/>
     <arg name="semantic_map_dir" default="$(find m2h)/config/colors"/>
     <arg name="semantic_map_file" default="$(arg labelspace_name).csv"/>
     <arg name="semantic_map_path" default="$(arg semantic_map_dir)/$(arg semantic_map_file)"/>
     <arg name="semantic_label_remap_filepath" default="$(find m2h)/config/label_remaps/nyud40_remap.yaml" if="$(arg use_single_channel_label_image)"/>
 
      <!-- labelspace configuration -->
-    <arg name="labelspace_dir" default="$(find mono_hydra)/config/label_spaces"/>
+    <arg name="labelspace_dir" default="$(find m2h)/config/label_spaces"/>
     <arg name="labelspace_path" default="$(arg labelspace_dir)/$(arg labelspace_name)_label_space.yaml"/>
 
     <!-- logging output for hydra -->
@@ -56,8 +56,9 @@
     <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="bag_static_tf_1" args="0.0 0.0 0.0 0.0 0.0 0.0 1.0 camera_color_optical_frame left_cam_kimera"/> -->
     
     <include file="$(find hydra_ros)/launch/hydra.launch" pass_all_args="true">
+        <arg name="rviz_file" value="d435i.rviz"/>
+        <arg name="rviz_dir" value="$(find mono_hydra)/rviz"/>
         <arg name="input_config_path" value="$(find mono_hydra)/config/datasets/$(arg dataset_name).yaml"/>
-        <arg name="labelspace_path" value="$(find mono_hydra)/config/label_spaces/$(arg labelspace_name)_label_space.yaml"/>
         <arg name="zmq_send_url" value="$(arg zmq_send_url)"/>
         <arg name="zmq_recv_url" value="$(arg zmq_recv_url)"/>
     </include>

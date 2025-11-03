@@ -126,279 +126,83 @@ Visualization Manager:
           Queue Size: 2
           Transport Hint: raw
           Unreliable: false
-        - Class: rviz/Group
-          Displays:
-            - Class: rviz/Image
-              Enabled: true
-              Image Topic: /camera/color/image_raw
-              Max Value: 1
-              Median window: 5
-              Min Value: 0
-              Name: RGB
-              Normalize Range: false
-              Queue Size: 10
-              Transport Hint: raw
-              Unreliable: false
-            - Alpha: 0.6000000238418579
-              Class: rviz/Map
-              Color Scheme: map
-              Draw Behind: true
-              Enabled: true
-              Name: Labels
-              Topic: /camera/seg_cam/image_raw
-              Unreliable: false
-              Value: true
+          Value: true
+        - Class: rviz/Image
           Enabled: true
+          Image Topic: /camera/seg_cam/image_raw
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
+          Name: Semantics
+          Normalize Range: true
+          Queue Size: 2
+          Transport Hint: raw
+          Unreliable: false
+          Value: true
+        - Class: rviz/Image
+          Enabled: true
+          Image Topic: /camera/color/image_raw
+          Max Value: 1
+          Median window: 5
+          Min Value: 0
           Name: RGB
+          Normalize Range: true
+          Queue Size: 2
+          Transport Hint: raw
+          Unreliable: false
+          Value: true
       Enabled: true
       Name: Input
-    - Alpha: 1
-      Buffer Length: 1
-      Class: rviz/Path
-      Color: 25; 255; 0
+    - Class: rviz/Group
+      Displays:
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /incremental_dsg_builder_node/pgmo/deformation_graph_mesh_mesh
+          Name: Mesh Edges
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
+        - Class: rviz/Marker
+          Enabled: true
+          Marker Topic: /incremental_dsg_builder_node/pgmo/deformation_graph_pose_mesh
+          Name: Pose-Mesh Edges
+          Namespaces:
+            {}
+          Queue Size: 100
+          Value: true
       Enabled: false
-      Head Diameter: 0.30000001192092896
-      Head Length: 0.20000000298023224
-      Length: 0.30000001192092896
-      Line Style: Lines
-      Line Width: 0.029999999329447746
-      Name: Path
-      Offset:
-        X: 0
-        Y: 0
-        Z: 0
-      Pose Color: 255; 85; 255
-      Pose Style: None
-      Queue Size: 10
-      Radius: 0.029999999329447746
-      Shaft Diameter: 0.10000000149011612
-      Shaft Length: 0.10000000149011612
-      Topic: /kimera_vio_ros/optimized_trajectory
-      Unreliable: false
-      Value: false
-    - Class: rviz/Group
-      Displays:
-        - Alpha: 0.5
-          Autocompute Intensity Bounds: true
-          Autocompute Value Bounds:
-            Max Value: 10
-            Min Value: -10
-            Value: true
-          Axis: Z
-          Channel Name: intensity
-          Class: rviz/PointCloud2
-          Color: 255; 255; 255
-          Color Transformer: RGB8
-          Decay Time: 0
-          Enabled: false
-          Invert Rainbow: false
-          Max Color: 255; 255; 255
-          Min Color: 0; 0; 0
-          Name: Recons Pointcloud
-          Position Transformer: XYZ
-          Queue Size: 10
-          Selectable: true
-          Size (Pixels): 3
-          Size (m): 0.009999999776482582
-          Style: Flat Squares
-          Topic: /hydra_ros_node/reconstruction/pointcloud
-          Unreliable: false
-          Use Fixed Frame: true
-          Use rainbow: true
-          Value: false
-        - Class: rviz/MarkerArray
-          Enabled: false
-          Marker Topic: /hydra_ros_node/reconstruction/esdf_viz
-          Name: Esdf
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: false
-        - Class: rviz/MarkerArray
-          Enabled: false
-          Marker Topic: /hydra_ros_node/reconstruction/esdf_gradient_viz
-          Name: EsdfGrad
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: false
-      Enabled: true
-      Name: Reconstruction
+      Name: Factor Graph
     - Class: rviz/Group
       Displays:
         - Class: rviz/MarkerArray
           Enabled: false
-          Marker Topic: /hydra_ros_node/objects/mesh
-          Name: Objects
+          Marker Topic: /hydra_ros_node/places/gvd_graph_viz
+          Name: GVD Graph
           Namespaces:
             {}
           Queue Size: 100
           Value: false
         - Class: rviz/MarkerArray
           Enabled: false
-          Marker Topic: /hydra_ros_node/objects/bounding_boxes
-          Name: ObjectBoxes
+          Marker Topic: /hydra_ros_node/places/graph_viz
+          Name: Sparse GVD Graph
           Namespaces:
             {}
           Queue Size: 100
           Value: false
         - Class: rviz/MarkerArray
           Enabled: false
-          Marker Topic: /hydra_ros_node/objects/segments
-          Name: ObjectSegments
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: false
-      Enabled: true
-      Name: Objects
-    - Class: rviz/Group
-      Displays:
-        - Alpha: 1
-          Autocompute Intensity Bounds: true
-          Autocompute Value Bounds:
-            Max Value: 10
-            Min Value: -10
-            Value: true
-          Axis: Z
-          Channel Name: intensity
-          Class: rviz/PointCloud2
-          Color: 255; 255; 255
-          Color Transformer: RGB8
-          Decay Time: 0
-          Enabled: false
-          Invert Rainbow: false
-          Max Color: 255; 255; 255
-          Min Color: 0; 0; 0
-          Name: Freespace Points
-          Position Transformer: XYZ
-          Queue Size: 10
-          Selectable: true
-          Size (Pixels): 3
-          Size (m): 0.009999999776482582
-          Style: Flat Squares
-          Topic: /hydra_ros_node/freespace/graph_points
-          Unreliable: false
-          Use Fixed Frame: true
-          Use rainbow: true
-          Value: false
-        - Alpha: 1
-          Autocompute Intensity Bounds: true
-          Autocompute Value Bounds:
-            Max Value: 10
-            Min Value: -10
-            Value: true
-          Axis: Z
-          Channel Name: intensity
-          Class: rviz/PointCloud2
-          Color: 172; 114; 254
-          Color Transformer: FlatColor
-          Decay Time: 0
-          Enabled: false
-          Invert Rainbow: false
-          Max Color: 255; 255; 255
-          Min Color: 0; 0; 0
-          Name: Freespace Voxels
-          Position Transformer: XYZ
-          Queue Size: 10
-          Selectable: true
-          Size (Pixels): 3
-          Size (m): 0.05000000074505806
-          Style: Boxes
-          Topic: /hydra_ros_node/freespace/voxel_grid
-          Unreliable: false
-          Use Fixed Frame: true
-          Use rainbow: false
-          Value: false
-      Enabled: true
-      Name: Freespace
-    - Class: rviz/Group
-      Displays:
-        - Alpha: 0.4000000059604645
-          Class: rviz/Polygon
-          Color: 25; 255; 0
-          Enabled: false
-          Name: Floor Boundary
-          Topic: /hydra_ros_node/freespace/floor/footprint
-          Unreliable: false
-          Value: false
-        - Class: rviz/Group
-          Displays:
-            - Class: rviz/MarkerArray
-              Enabled: false
-              Marker Topic: /hydra_ros_node/freespace/graph
-              Name: Floor (Graph)
-              Namespaces:
-                {}
-              Queue Size: 100
-              Value: false
-            - Class: rviz/MarkerArray
-              Enabled: false
-              Marker Topic: /hydra_ros_node/freespace/pruned_graph
-              Name: Floor (Pruned Graph)
-              Namespaces:
-                {}
-              Queue Size: 100
-              Value: false
-          Enabled: true
-          Name: Floor Graphs
-        - Class: rviz/Group
-          Displays:
-            - Alpha: 1
-              Class: rviz/PointCloud2
-              Color: 25; 255; 0
-              Color Transformer: FlatColor
-              Decay Time: 0
-              Enabled: false
-              Invert Rainbow: false
-              Max Color: 255; 255; 255
-              Min Color: 0; 0; 0
-              Name: Floor Points
-              Position Transformer: XYZ
-              Queue Size: 10
-              Selectable: true
-              Size (Pixels): 3
-              Size (m): 0.009999999776482582
-              Style: Flat Squares
-              Topic: /hydra_ros_node/freespace/filtered_points
-              Unreliable: false
-              Use Fixed Frame: true
-              Use rainbow: false
-              Value: false
-          Enabled: true
-          Name: Floor Points
-      Enabled: true
-      Name: Floor
-    - Class: rviz/Group
-      Displays:
-        - Class: rviz/MarkerArray
-          Enabled: false
-          Marker Topic: /hydra_ros_node/places/mesh
-          Name: Place Mesh
+          Marker Topic: /hydra_ros_node/places/gvd_cluster_viz
+          Name: GVD Clusters
           Namespaces:
             {}
           Queue Size: 100
           Value: false
         - Class: rviz/MarkerArray
           Enabled: false
-          Marker Topic: /hydra_ros_node/places/segments
-          Name: Place Segments
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: false
-        - Class: rviz/MarkerArray
-          Enabled: false
-          Marker Topic: /hydra_ros_node/places/polygon
-          Name: Place Polygons
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: false
-        - Class: rviz/MarkerArray
-          Enabled: false
-          Marker Topic: /hydra_ros_node/places/voxels
-          Name: Place Voxels
+          Marker Topic: /hydra_ros_node/places/esdf_viz
+          Name: EsdfSlice
           Namespaces:
             {}
           Queue Size: 100
@@ -449,186 +253,6 @@ Visualization Manager:
       Topic: /kimera_vio_ros/optimized_trajectory
       Unreliable: false
       Value: false
-    - Class: rviz/Group
-      Displays:
-        - Alpha: 0.5
-          Autocompute Intensity Bounds: true
-          Autocompute Value Bounds:
-            Max Value: 10
-            Min Value: -10
-            Value: true
-          Axis: Z
-          Channel Name: intensity
-          Class: rviz/PointCloud2
-          Color: 72; 255; 0
-          Color Transformer: FlatColor
-          Decay Time: 0
-          Enabled: false
-          Invert Rainbow: false
-          Max Color: 255; 255; 255
-          Min Color: 0; 0; 0
-          Name: Objects Points
-          Position Transformer: XYZ
-          Queue Size: 10
-          Selectable: true
-          Size (Pixels): 3
-          Size (m): 0.009999999776482582
-          Style: Flat Squares
-          Topic: /hydra_ros_node/objects/filtered_points
-          Unreliable: false
-          Use Fixed Frame: true
-          Use rainbow: false
-          Value: false
-        - Class: rviz/MarkerArray
-          Enabled: false
-          Marker Topic: /hydra_ros_node/objects/cluster_graph
-          Name: ObjectsGraph
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: false
-      Enabled: true
-      Name: Objects Points
-    - Class: rviz/Group
-      Displays:
-        - Class: rviz/MarkerArray
-          Enabled: false
-          Marker Topic: /hydra_ros_node/places/graph
-          Name: Places Graph
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: false
-        - Class: rviz/MarkerArray
-          Enabled: false
-          Marker Topic: /hydra_ros_node/places/graph_pruned
-          Name: Places Graph (Pruned)
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: false
-        - Class: rviz/MarkerArray
-          Enabled: false
-          Marker Topic: /hydra_ros_node/places/active_paths
-          Name: Places Active Paths
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: false
-      Enabled: true
-      Name: Places Graph
-    - Class: rviz/Group
-      Displays:
-        - Class: rviz/MarkerArray
-          Enabled: false
-          Marker Topic: /hydra_ros_node/reconstruction/voxels
-          Name: Reconstruction Voxels
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: false
-      Enabled: true
-      Name: Reconstruction Voxels
-    - Class: rviz/Group
-      Displays:
-        - Alpha: 1
-          Autocompute Intensity Bounds: true
-          Autocompute Value Bounds:
-            Max Value: 10
-            Min Value: -10
-            Value: true
-          Axis: Z
-          Channel Name: intensity
-          Class: rviz/PointCloud2
-          Color: 255; 0; 0
-          Color Transformer: FlatColor
-          Decay Time: 0
-          Enabled: false
-          Invert Rainbow: false
-          Max Color: 255; 255; 255
-          Min Color: 0; 0; 0
-          Name: Floor Points Filtered
-          Position Transformer: XYZ
-          Queue Size: 10
-          Selectable: true
-          Size (Pixels): 3
-          Size (m): 0.009999999776482582
-          Style: Flat Squares
-          Topic: /hydra_ros_node/freespace/filtered_floor_points
-          Unreliable: false
-          Use Fixed Frame: true
-          Use rainbow: false
-          Value: false
-      Enabled: true
-      Name: Floor Filtered
-    - Class: rviz/Group
-      Displays:
-        - Class: rviz/MarkerArray
-          Enabled: false
-          Marker Topic: /hydra_ros_node/reconstruction/elastic_mesh
-          Name: Reconstruction Elastic Mesh
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: false
-      Enabled: true
-      Name: Reconstruction Elastic Mesh
-    - Class: rviz/Group
-      Displays:
-        - Class: rviz/MarkerArray
-          Enabled: false
-          Marker Topic: /hydra_ros_node/objects/segments_colored
-          Name: Object Segments Colored
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: false
-      Enabled: true
-      Name: Object Segments Colored
-    - Class: rviz/Group
-      Displays:
-        - Alpha: 0.4000000059604645
-          Class: rviz/Polygon
-          Color: 255; 255; 255
-          Enabled: false
-          Name: Floor Boundary Pruned
-          Topic: /hydra_ros_node/freespace/pruned_floor/footprint
-          Unreliable: false
-          Value: false
-        - Class: rviz/MarkerArray
-          Enabled: false
-          Marker Topic: /hydra_ros_node/freespace/pruned_floor/graph
-          Name: Floor Graph Pruned
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: false
-      Enabled: true
-      Name: Floor Pruned
-    - Class: rviz/Group
-      Displays:
-        - Class: rviz/MarkerArray
-          Enabled: false
-          Marker Topic: /hydra_ros_node/places/place_rings
-          Name: Place Rings
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: false
-      Enabled: true
-      Name: Place Rings
-    - Class: rviz/Group
-      Displays:
-        - Class: rviz/MarkerArray
-          Enabled: false
-          Marker Topic: /hydra_ros_node/places/places_mesh
-          Name: Places Mesh
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: false
-      Enabled: true
-      Name: Places Mesh
   Enabled: true
   Global Options:
     Background Color: 255; 255; 255
