@@ -1,10 +1,8 @@
 # Mono_Hydra
 
 
-- **Mono-Hydra** – *Mono-hydra: Real-time 3D scene graph construction from monocular camera input with IMU*  
-  [arXiv:2308.05515](https://arxiv.org/pdf/2308.05515)
-- **M2H** – *M2H: Multi-Task Learning with Efficient Window-Based Cross-Task Attention for Monocular Spatial Perception*  
-  [arXiv:2510.17363](https://arxiv.org/abs/2510.17363)
+- **Mono-Hydra** – [*Mono-Hydra: Real-time 3D scene graph construction from monocular camera input with IMU*](https://arxiv.org/pdf/2308.05515)
+- **M2H** – [*M2H: Multi-Task Learning with Efficient Window-Based Cross-Task Attention for Monocular Spatial Perception*](https://arxiv.org/abs/2510.17363)
   
 ## Mono-Hydra flow chart
 <img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/Slide1.jpg"  width="60%" height="60%">
@@ -118,7 +116,7 @@ rosbag play /home/bavantha/catkin_ws/data/ITC_2nd_floor_full_loop.bag --clock --
 | M2H-small (ours) | 0.16 | 0.18 | 0.15 | 0.17 | 42 |
 | **M2H (ours)** | **0.11** | **0.14** | **0.10** | **0.13** | **30** |
 
-<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/2nd_floor.jpg"  width="80%" height="80%">
+<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/2nd_floor.jpg">
 
 
 
