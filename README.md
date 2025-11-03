@@ -101,6 +101,8 @@ roslaunch m2h m2h.launch
 rosbag play ~/catkin_ws/data/ITC_2nd_floor_full_loop.bag --clock --pause /tf:=/tf_ignore /tf_static:=/tf_static_ignore
 ```
 
+> **Logging tip:** Kimera-VIO-ROS writes frontend/backend CSV logs under\n> `mono_hydra_vio_ros/output_logs/<config_name>/`. If you add a new dataset\n> configuration, create the matching subdirectory first (e.g.,\n> `output_logs/RealSense_RGBD_sp/`) so logging succeeds.
+
 ### Results
 **3D Mapping Test (ITC dataset) with M2H framework**
 
