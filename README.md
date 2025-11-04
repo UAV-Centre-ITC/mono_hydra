@@ -30,6 +30,11 @@ stack. It aggregates:
 ### 1. Clone the curated workspace
 
 The Mono-Hydra stack depends on specific forks of Kimera-VIO and its ROS wrapper.
+Hydra has seen many revisions over the past few years, so please use the setup
+script below to confirm the entire workspace still builds end to end. I last
+tested the script on Ubuntu 20.04 LTS with ROS Noetic. At the moment I cannot
+take on feature requests; if you run into a bug, please open an issue and I will
+do my best to address it promptly.
 Use the helper script bundled in this repository to fetch the exact revisions.
 You can either run it directly from GitHub (handy for first-time setup) or from
 the checked-out repo.
@@ -80,6 +85,10 @@ catkin build
   support lives in the `RealSense_RGBD_sp` and `ZEDXMono_RGBD` parameter sets.
 - **rvio2_mono robocentric VIO (based on R-VIO2)** – `roslaunch rvio2 realsense.launch`
   for the RealSense-driven monocular workflow.
+
+> **Sensor note:** mono_hydra has been validated on RealSense RGB + IMU and ZED X one
+> rigs. The released M2H weights were not trained on wide-FOV RGB imagery, so
+> the RealSense configuration currently yields the best perception quality.
 
 ## How to run Mono Hydra with ITC building dataset
 
