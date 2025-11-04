@@ -121,16 +121,6 @@ rosbag play /path/to/ITC_2nd_floor_full_loop.bag --clock --pause /tf:=/tf_ignore
 > configuration, create the matching subdirectory first (e.g.,
 > `output_logs/RealSense_RGBD_sp/`) so logging succeeds.
 
-## Attribution & citations
-
-mono_hydra stands on the shoulders of the MIT-SPARK community. Hydra
-([github.com/MIT-SPARK/Hydra](https://github.com/MIT-SPARK/Hydra)) and the
-Kimera family ([github.com/MIT-SPARK/Kimera](https://github.com/MIT-SPARK/Kimera))
-provide the spatial scene graph, factor graph optimization, and VIO foundations
-that make this monocular workspace possible. If mono_hydra helps your research
-or deployment, please cite the Hydra and Kimera papers alongside the Mono-Hydra
-and M2H publications linked above.
-
 ### Results
 **3D Mapping Test (ITC dataset) with M2H framework**
 
@@ -147,6 +137,15 @@ and M2H publications linked above.
 
 
 
+## Attribution & citations
+
+mono_hydra stands on the shoulders of the MIT-SPARK community. Hydra
+([github.com/MIT-SPARK/Hydra](https://github.com/MIT-SPARK/Hydra)) and the
+Kimera family ([github.com/MIT-SPARK/Kimera](https://github.com/MIT-SPARK/Kimera))
+provide the 3D scene graph, factor graph optimization, and VIO foundations
+that make this monocular workspace possible. If mono_hydra helps your research
+or deployment, please cite the Hydra and Kimera papers alongside the Mono-Hydra
+and M2H publications linked below.
 
 ### Citations
 If you use this repository, please cite the following papers:
