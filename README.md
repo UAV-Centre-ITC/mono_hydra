@@ -1,16 +1,11 @@
 # mono_hydra
 
-
 - **Mono-Hydra** – [*Mono-Hydra: Real-time 3D scene graph construction from monocular camera input with IMU*](https://arxiv.org/abs/2308.05515)
 - **M2H** – [*M2H: Multi-Task Learning with Efficient Window-Based Cross-Task Attention for Monocular Spatial Perception*](https://arxiv.org/abs/2510.17363)
-  
-## Mono-Hydra flow chart
-<img src="https://github.com/UAV-Centre-ITC/mono_hydra/blob/main/doc/media/Slide1.jpg">
 
-[Poster](<doc/media/M2H_IROS25_A4.pdf>)
+## Overview
 
-mono_hydra is the **central workspace** for our monocular spatial perception
-stack. It aggregates:
+mono_hydra is the **central workspace** for our monocular spatial perception stack. It aggregates:
 
 - **M2H** multi-task perception (semantics + depth + normals + edges).
 - **mono_hydra_vio** (Kimera-VIO fork) and **mono_hydra_vio_ros** for
@@ -19,7 +14,13 @@ stack. It aggregates:
 - Dataset launchers, TFs, RViz layouts, and helper scripts that glue the
   perception and VIO pipelines together.
 
-## Installing mono_hydra
+### Flow chart
+
+<img src="https://github.com/UAV-Centre-ITC/mono_hydra/blob/main/doc/media/Slide1.jpg">
+
+[Poster](<doc/media/M2H_IROS25_A4.pdf>)
+
+## Installation
 
 ### Prerequisites
 
@@ -29,15 +30,13 @@ stack. It aggregates:
 
 ### 1. Clone the curated workspace
 
-The Mono-Hydra stack depends on specific forks of Kimera-VIO and its ROS wrapper.
-Hydra has seen many revisions over the past few years, so please use the setup
-script below to confirm the entire workspace still builds end to end. I last
-tested the script on Ubuntu 20.04 LTS with ROS Noetic. At the moment I cannot
-take on feature requests; if you run into a bug, please open an issue and I will
-do my best to address it promptly.
-Use the helper script bundled in this repository to fetch the exact revisions.
-You can either run it directly from GitHub (handy for first-time setup) or from
-the checked-out repo.
+> Hydra has seen many revisions over the past few years, so please use the setup
+> script below to confirm the entire workspace still builds end to end. I last
+> tested the script on Ubuntu 20.04 LTS with ROS Noetic. At the moment I cannot
+> take on feature requests; if you run into a bug, please open an issue and I will
+> do my best to address it promptly.
+
+The Mono-Hydra stack depends on specific forks of Kimera-VIO and its ROS wrapper. Use the helper script bundled in this repository to fetch the exact revisions. You can either run it directly from GitHub (handy for first-time setup) or from the checked-out repo.
 
 ```bash
 # Optional: choose a custom workspace path
@@ -84,9 +83,9 @@ catkin build
   (or other dataset-specific launchers under `mono_hydra/launch`). SuperPoint
   support lives in the `RealSense_RGBD_sp` and `ZEDXMono_RGBD` parameter sets.
 - **rvio2_mono robocentric VIO (based on R-VIO2)** – `roslaunch rvio2 realsense.launch`
-  for the RealSense-driven monocular workflow.
+  for the RealSense-driven monocular workflow. This repository is optional—Kimera-based VIO already provides loop closure.
 
-> **Sensor note:** mono_hydra has been validated on RealSense RGB + IMU and ZED X one
+> **Sensor note:** mono_hydra has been validated on RealSense RGB + IMU and ZED X
 > rigs. The released M2H weights were not trained on wide-FOV RGB imagery, so
 > the RealSense configuration currently yields the best perception quality.
 
