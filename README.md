@@ -10,7 +10,7 @@ mono_hydra is the **central workspace** for our monocular spatial perception sta
 - **M2H** multi-task perception (semantics + depth + normals + edges).
 - **mono_hydra_vio** (Kimera-VIO fork) and **mono_hydra_vio_ros** for
   SuperPoint-based monocular/stereo VIO.
-- **rvio2_mono** (fork of R-VIO2) for robocentric VIO without loop closing.
+- **rvio2_mono** (fork of R-VIO2) for robocentric VIO without loop closing. This repository is optional, Kimera-based VIO already provides loop closure and odometry.
 - Dataset launchers, TFs, RViz layouts, and helper scripts that glue the
   perception and VIO pipelines together.
 
@@ -83,7 +83,7 @@ catkin build
   (or other dataset-specific launchers under `mono_hydra/launch`). SuperPoint
   support lives in the `RealSense_RGBD_sp` and `ZEDXMono_RGBD` parameter sets.
 - **rvio2_mono robocentric VIO (based on R-VIO2)** – `roslaunch rvio2 realsense.launch`
-  for the RealSense-driven monocular workflow. This repository is optional—Kimera-based VIO already provides loop closure.
+  for the RealSense-driven monocular workflow.
 
 > **Sensor note:** mono_hydra has been validated on RealSense RGB + IMU and ZED X
 > rigs. The released M2H weights were not trained on wide-FOV RGB imagery, so
