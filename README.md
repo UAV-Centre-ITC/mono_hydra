@@ -1,15 +1,15 @@
-# Mono_Hydra
+# mono_hydra
 
 
 - **Mono-Hydra** – [*Mono-Hydra: Real-time 3D scene graph construction from monocular camera input with IMU*](https://arxiv.org/abs/2308.05515)
 - **M2H** – [*M2H: Multi-Task Learning with Efficient Window-Based Cross-Task Attention for Monocular Spatial Perception*](https://arxiv.org/abs/2510.17363)
   
 ## Mono-Hydra flow chart
-<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/Slide1.jpg">
+<img src="https://github.com/UAV-Centre-ITC/mono_hydra/blob/main/doc/media/Slide1.jpg">
 
 [Poster](<doc/media/M2H_IROS25_A4.pdf>)
 
-Mono_Hydra is the **central workspace** for our monocular spatial perception
+mono_hydra is the **central workspace** for our monocular spatial perception
 stack. It aggregates:
 
 - **M2H** multi-task perception (semantics + depth + normals + edges).
@@ -19,7 +19,7 @@ stack. It aggregates:
 - Dataset launchers, TFs, RViz layouts, and helper scripts that glue the
   perception and VIO pipelines together.
 
-## Installing Mono_Hydra
+## Installing mono_hydra
 
 ### Prerequisites
 
@@ -39,17 +39,17 @@ the checked-out repo.
 export MONO_WS=$HOME/mono_hydra_ws
 
 # From anywhere
-curl -fsSL https://raw.githubusercontent.com/UAV-Centre-ITC/Mono_Hydra/main/scripts/setup_workspace.sh \
+curl -fsSL https://raw.githubusercontent.com/UAV-Centre-ITC/mono_hydra/main/scripts/setup_workspace.sh \
   | bash -s -- "${MONO_WS:-$HOME/mono_hydra_ws}"
 
-# or, once you have cloned Mono_Hydra locally:
-#   cd /path/to/Mono_Hydra
+# or, once you have cloned mono_hydra locally:
+#   cd /path/to/mono_hydra
 #   ./scripts/setup_workspace.sh "${MONO_WS:-$HOME/mono_hydra_ws}"
 ```
 
 The script clones:
 
-- `mono_hydra` (this repository) from `UAV-Centre-ITC/Mono_Hydra`
+- `mono_hydra` (this repository) from `UAV-Centre-ITC/mono_hydra`
 - `m2h` from `UAV-Centre-ITC/M2H`
 - `mono_hydra_vio` and `mono_hydra_vio_ros` from `github.com/BavanthaU`
 - `rvio2_mono` fork with Mono-Hydra automation tweaks
@@ -113,7 +113,7 @@ rosbag play ~/catkin_ws/data/ITC_2nd_floor_full_loop.bag --clock --pause /tf:=/t
 | M2H-small (ours) | 0.16 | 0.18 | 0.15 | 0.17 | 42 |
 | **M2H (ours)** | **0.11** | **0.14** | **0.10** | **0.13** | **30** |
 
-<img src="https://github.com/UAV-Centre-ITC/Mono_Hydra/blob/main/doc/media/2nd_floor.jpg" width="80%" height="80%">
+<img src="https://github.com/UAV-Centre-ITC/mono_hydra/blob/main/doc/media/2nd_floor.jpg" width="80%" height="80%">
 
 *2nd floor loop in the old ITC building (>100 m).*
 
