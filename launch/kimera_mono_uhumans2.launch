@@ -12,7 +12,7 @@
        the log_output_path location. -->
   <arg name="log_output" default="false"/>
   <arg name="log_output_path"
-    default="$(find kimera_vio_ros)/output_logs/$(arg dataset_name)"
+    default="$(find mono_hydra_vio_ros)/output_logs/$(arg dataset_name)"
        if="$(arg log_output)"/>
   <!-- Set to true and specify gt_topic if you want to log ground-truth data -->
   <arg name="log_gt_data" default="false"/>
@@ -33,6 +33,6 @@
   <arg name="run_stereo_dense"     default="false"/>
 
   <!-- Launch actual pipeline -->
-  <include file="$(find kimera_vio_ros)/launch/kimera_vio_ros_uhumans2.launch"
+  <include file="$(find mono_hydra_vio_ros)/launch/mono_hydra_vio_ros_uhumans2.launch"
     pass_all_args="true"/>
 </launch>

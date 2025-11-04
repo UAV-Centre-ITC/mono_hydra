@@ -38,7 +38,7 @@ declare -A REPOS=(
   [kimera_rviz_markers]="https://github.com/MIT-SPARK/kimera_rviz_markers.git f342baf99fa55f9351795785bea1262ed8b451db"
   [mesh_rviz_plugins]="https://github.com/MIT-SPARK/mesh_rviz_plugins.git 2ad232270b5728522fd504d5c337ed5e43bf46cf"
   [m2h]="https://github.com/UAV-Centre-ITC/M2H.git main"
-  [mono_hydra]="https://github.com/UAV-Centre-ITC/Mono_Hydra.git main"
+  [mono_hydra]="https://github.com/UAV-Centre-ITC/mono_hydra.git main"
   [mono_hydra_vio]="https://github.com/BavanthaU/mono_hydra_vio.git main"
   [mono_hydra_vio_ros]="https://github.com/BavanthaU/mono_hydra_vio_ros.git main"
   [opengv]="https://github.com/laurentkneip/opengv.git 91f4b19c73450833a40e463ad3648aae80b3a7f3"
@@ -55,6 +55,29 @@ for entry in "${!REPOS[@]}"; do
   echo "=== $entry"
   clone_checkout "$entry" "$url" "$ref"
 done
+
+# Ensure Kimera-PGMO launch files reference the renamed mono_hydra_vio_ros package.
+PGMO_DIR="$SRC_DIR/kimera_pgmo"
+if [[ -d "$PGMO_DIR" ]]; then
+  python3 - "$PGMO_DIR" <<'PY'
+from pathlib import Path
+import sys
+
+root = Path(sys.argv[1])
+for path in root.rglob("*"):
+    if not path.is_file():
+        continue
+    try:
+        text = path.read_text()
+    except UnicodeDecodeError:
+        continue
+    if "kimera_vio_ros" not in text:
+        continue
+    new_text = text.replace("kimera_vio_ros", "mono_hydra_vio_ros")
+    if new_text != text:
+        path.write_text(new_text)
+PY
+fi
 
 # Patch upstream TEASER++ to add missing std:: qualifiers and includes on older commits.
 TEASER_GRAPH_CC="$SRC_DIR/teaser_plusplus/teaser/src/graph.cc"

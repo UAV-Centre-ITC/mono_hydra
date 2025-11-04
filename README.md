@@ -88,11 +88,17 @@ Download the 2nd-floor loop of the old ITC building from [this SURFdrive archive
 
 ### Quickstart (after a clean workspace build)
 Open four terminals and launch the stack in order:
+
+> **Feature tracker selection:**  
+> - GFTT tracker: `roslaunch mono_hydra_vio_ros mono_hydra_vio_ros_realsense_rgbd.launch online:=true viz_type:=1 use_lcd:=true lcd_no_optimize:=true`  
+> - SuperPoint tracker: use the `_sp` launch shown in step 2 below.
+> 
+> Kimera-based monocular VIO will still propose loop closure detections in these launch files, but the global optimization is handled downstream by mono_hydra.
 ```
 roslaunch mono_hydra hydra_v2_d435i.launch use_gt_frame:=false
 ```
 ```
-roslaunch kimera_vio_ros kimera_vio_ros_realsense_rgbd_sp.launch online:=true viz_type:=1 use_lcd:=true lcd_no_optimize:=true
+roslaunch mono_hydra_vio_ros mono_hydra_vio_ros_realsense_rgbd_sp.launch online:=true viz_type:=1 use_lcd:=true lcd_no_optimize:=true
 ```
 ```
 roslaunch m2h m2h.launch
@@ -101,7 +107,10 @@ roslaunch m2h m2h.launch
 rosbag play ~/catkin_ws/data/ITC_2nd_floor_full_loop.bag --clock --pause /tf:=/tf_ignore /tf_static:=/tf_static_ignore
 ```
 
-> **Logging tip:** Kimera-VIO-ROS writes frontend/backend CSV logs under\n> `mono_hydra_vio_ros/output_logs/<config_name>/`. If you add a new dataset\n> configuration, create the matching subdirectory first (e.g.,\n> `output_logs/RealSense_RGBD_sp/`) so logging succeeds.
+> **Logging tip:** mono_hydra_vio_ros writes frontend/backend CSV logs under
+> `mono_hydra_vio_ros/output_logs/<config_name>/`. If you add a new dataset
+> configuration, create the matching subdirectory first (e.g.,
+> `output_logs/RealSense_RGBD_sp/`) so logging succeeds.
 
 ### Results
 **3D Mapping Test (ITC dataset) with M2H framework**
