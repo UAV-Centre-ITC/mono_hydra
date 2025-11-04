@@ -84,7 +84,7 @@ catkin build
 ## How to run Mono Hydra with ITC building dataset
 
 ### Download data 
-Download the 2nd-floor loop of the old ITC building from [this SURFdrive archive](https://surfdrive.surf.nl/s/baJM4fj3DaWwg3T). Unzip the file and place the extracted ROS bag (e.g., `ITC_2nd_floor_full_loop.bag`) somewhere accessible, such as `~/catkin_ws/data/`.
+Download the 2nd-floor loop of the old ITC building from [this SURFdrive archive](https://surfdrive.surf.nl/s/baJM4fj3DaWwg3T). Unzip the file and place the extracted ROS bag (e.g., `ITC_2nd_floor_full_loop.bag`).
 
 ### Quickstart (after a clean workspace build)
 Open four terminals and launch the stack in order:
@@ -104,13 +104,23 @@ roslaunch mono_hydra_vio_ros mono_hydra_vio_ros_realsense_rgbd_sp.launch online:
 roslaunch m2h m2h.launch
 ```
 ```
-rosbag play ~/catkin_ws/data/ITC_2nd_floor_full_loop.bag --clock --pause /tf:=/tf_ignore /tf_static:=/tf_static_ignore
+rosbag play /path/to/ITC_2nd_floor_full_loop.bag --clock --pause /tf:=/tf_ignore /tf_static:=/tf_static_ignore
 ```
 
 > **Logging tip:** mono_hydra_vio_ros writes frontend/backend CSV logs under
 > `mono_hydra_vio_ros/output_logs/<config_name>/`. If you add a new dataset
 > configuration, create the matching subdirectory first (e.g.,
 > `output_logs/RealSense_RGBD_sp/`) so logging succeeds.
+
+## Attribution & citations
+
+mono_hydra stands on the shoulders of the MIT-SPARK community. Hydra
+([github.com/MIT-SPARK/Hydra](https://github.com/MIT-SPARK/Hydra)) and the
+Kimera family ([github.com/MIT-SPARK/Kimera](https://github.com/MIT-SPARK/Kimera))
+provide the spatial scene graph, factor graph optimization, and VIO foundations
+that make this monocular workspace possible. If mono_hydra helps your research
+or deployment, please cite the Hydra and Kimera papers alongside the Mono-Hydra
+and M2H publications linked above.
 
 ### Results
 **3D Mapping Test (ITC dataset) with M2H framework**
