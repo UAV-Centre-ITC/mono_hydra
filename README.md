@@ -69,7 +69,7 @@ catkin config --extend /opt/ros/noetic --merge-devel \
   --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo \
   -DGTSAM_TANGENT_PREINTEGRATION=OFF -DGTSAM_USE_SYSTEM_EIGEN=ON \
   -DGTSAM_BUILD_WITH_MARCH_NATIVE=OFF -DOPENGV_BUILD_WITH_MARCH_NATIVE=OFF
-catkin build
+catkin build -j8  # adjust -j to match the cores reported by `nproc`
 ```
 
 > The script is also available locally under `mono_hydra/scripts/setup_workspace.sh`
